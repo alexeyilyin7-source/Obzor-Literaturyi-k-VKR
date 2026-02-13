@@ -1,2 +1,2 @@
-# Obzor-Literaturyi-k-VKR
-Obzor Literaturyi k VKR
+# Programmirovanie i IT v Nauchno-Issledovatelskoy rabote
+Programmirovanie i IT v Nauchno-Issledovatelskoy rabote
