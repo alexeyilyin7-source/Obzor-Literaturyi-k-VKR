@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Avocado Analytics</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .graph-container {
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Avocado Analytics</h1>
+        <p>
+            Analyze the behavior of avocado prices and the number
+            of avocados sold in the US between 2015 and 2018
+        </p>
+
+        <!-- Первый график: Средняя цена авокадо -->
+        <div class="graph-container" id="price-graph"></div>
+
+        <!-- Второй график: Объем продаж авокадо -->
+        <div class="graph-container" id="volume-graph"></div>
+    </div>
+
+    <script>
+        // Данные из avocado.csv (в реальном приложении данные загружаются из файла)
+        // Здесь представлены примерные данные для демонстрации структуры
+        const dates = [
+            '2015-01-04', '2015-01-11', '2015-01-18', '2015-01-25',
+            '2015-02-01', '2015-02-08', '2015-02-15', '2015-02-22'
+        ];
+
+        const averagePrices = [1.05, 1.02, 1.08, 1.12, 1.15, 1.10, 1.08, 1.14];
+        const totalVolumes = [64236.62, 54876.98, 64718.97, 64718.97,
+                              58238.98, 55638.99, 57021.94, 60878.95];
+
+        // Создание первого графика (Средняя цена)
+        const priceTrace = {
+            x: dates,
+            y: averagePrices,
+            type: 'scatter',
+            mode: 'lines',
+            name: 'Average Price',
+            line: {color: 'blue'}
+        };
+
+        const priceLayout = {
+            title: 'Average Price of Avocados',
+            xaxis: {title: 'Date'},
+            yaxis: {title: 'Price ($)'}
+        };
+
+        Plotly.newPlot('price-graph', [priceTrace], priceLayout);
+
+        // Создание второго графика (Объем продаж)
+        const volumeTrace = {
+            x: dates,
+            y: totalVolumes,
+            type: 'scatter',
+            mode: 'lines',
+            name: 'Total Volume',
+            line: {color: 'green'}
+        };
+
+        const volumeLayout = {
+            title: 'Avocados Sold',
+            xaxis: {title: 'Date'},
+            yaxis: {title: 'Total Volume'}
+        };
+
+        Plotly.newPlot('volume-graph', [volumeTrace], volumeLayout);
+    </script>
+</body>
+</html>
